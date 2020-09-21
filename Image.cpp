@@ -6,10 +6,10 @@ Image::Image(string filepath){
 
 Image::~Image(){}
 
-int Image::height(){
+int Image::height() const{
     return _height;
 }
 
-int Image::width(){
+int Image::width() const{
     return _width;
 }
