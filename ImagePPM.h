@@ -10,9 +10,13 @@ using namespace std;
 class ImagePPM : public Image{
     private:
         rgb8** _bytes;
+
     public:
         ImagePPM(string filepath);
         ~ImagePPM();
+
+        double* histogram();
+
         rgb8** bytes();
 };
 

@@ -10,11 +10,14 @@ class Image{
     protected:
         int _height;
         int _width;
-    public:
+
         Image(string filepath);
+        Image(const &Image);
         ~Image();
-        int height();
-        int width();
+
+    public:
+        int height() const;
+        int width() const;
 };
 
 

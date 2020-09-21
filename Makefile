@@ -2,7 +2,7 @@ CC        = g++
 CXXFLAGS  =-Wall -g
 
 TARGET    =features
-SRC       =features.cpp Image.cpp
+SRC       =features.cpp Image.cpp Matrix.cpp ImagePGM.cpp ImagePPM.cpp
 OBJ       =$(SRC:.cpp=.o)
 LIB  	  =lib/libnrc.a
 
