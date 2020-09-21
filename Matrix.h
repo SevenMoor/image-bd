@@ -11,8 +11,9 @@ class Matrix{
         int height();
         int width();
         int** content();
-        int read(int i, int j);
-        static Matrix sobel();
+        int* operator[](int i);
+        static Matrix verticalSobel();
+        static Matrix horizontalSobel();
         static Matrix ones();
 };
 
