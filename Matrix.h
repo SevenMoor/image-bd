@@ -5,20 +5,24 @@
 
 class Matrix{
     private:
-        int _height;
         int _width;
+        int _height;
         int** _content;
+
     public:
-        Matrix(int width, int height);
-        void setContent(int** content);
-        ~Matrix();
-        int height();
-        int width();
-        int** content();
-        int* operator[](int i);
         static Matrix* verticalSobel();
         static Matrix* horizontalSobel();
         static Matrix* ones();
+
+        Matrix(int width, int height);
+        ~Matrix();
+
+        int** content();
+        void setContent(int** content);
+        int height() const;
+        int width() const;
+
+        int* operator[](int i);        
 };
 
 #endif

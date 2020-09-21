@@ -1,7 +1,11 @@
 #include "Image.h"
 
-Image::Image(string filepath){
+Image::Image(string filepath) {
     //...
+}
+
+Image::Image(const Image& image) {
+
 }
 
 Image::~Image(){}

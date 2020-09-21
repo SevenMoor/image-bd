@@ -1,10 +1,10 @@
 #include "Matrix.h"
 
-int Matrix::height(){
+int Matrix::height() const {
     return _height;
 }
 
-int Matrix::width(){
+int Matrix::width() const {
     return _width;
 }
 
