@@ -1,9 +1,9 @@
 NAME      = features
-SRC       = features.c
+SRC       = Image.cpp
 OBJ       = $(SRC:.c=.o)
 CXXFLAGS  = -Wall -g
 LIBFLAGS  = -Ilib/libnrc.a
-CC        = gcc
+CC        = g++
 
 $(NAME) : $(OBJ)
 	$(CC) $(OBJ) -o $(NAME) $(LIBFLAGS)
