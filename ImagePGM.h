@@ -12,14 +12,24 @@ class ImagePGM : public Image{
         byte** _bytes;
     public:
         ImagePGM(string filepath);
+        ImagePGM(const *ImagePGM);
         ~ImagePGM();
-        byte** bytes();
-        ImagePGM lowPassFilter();
-        ImagePGM operator*(Matrix m);
-        ImagePGM verticalGradient();
-        ImagePGM horizontalGrandient();
-        ImagePGM normalGrandient();
+
+        // Convolutions
+        void lowPassFilter();
+        void verticalGradient();
+        void horizontalGrandient();
+        void normalGrandient();
+
+        // Histogram
         double* histogram();
+
+        // Getter
+        byte** bytes();
+
+        // Operators
+        void operator*(Matrix m);
+        byte* operator[](int i);
 };
 
 #endif
