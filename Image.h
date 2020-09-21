@@ -12,7 +12,7 @@ class Image{
         int _width;
 
         Image(string filepath);
-        Image(const &Image);
+        Image(const Image&);
         ~Image();
 
     public:
