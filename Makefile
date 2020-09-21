@@ -2,7 +2,7 @@ NAME      = features
 SRC       = features.c
 OBJ       = $(SRC:.c=.o)
 CXXFLAGS  = -Wall -g
-LIBFLAGS  = -I lib/libnrc.a
+LIBFLAGS  = -Ilib/libnrc.a
 CC        = gcc
 
 $(NAME) : $(OBJ)
