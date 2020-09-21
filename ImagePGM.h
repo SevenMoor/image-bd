@@ -12,7 +12,7 @@ class ImagePGM : public Image{
         byte** _bytes;
     public:
         ImagePGM(string filepath);
-        ImagePGM(const *ImagePGM);
+        ImagePGM(const ImagePGM&);
         ~ImagePGM();
 
         // Convolutions

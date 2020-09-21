@@ -13,9 +13,12 @@ class ImagePPM : public Image{
 
     public:
         ImagePPM(string filepath);
+        ImagePPM(const ImagePPM&);
         ~ImagePPM();
 
-        double* histogram();
+        void save(string path);
+
+        double** histogram();
 
         rgb8** bytes();
 };
