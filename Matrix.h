@@ -10,7 +10,7 @@ class Matrix{
         int** _content;
     public:
         Matrix(int width, int height);
-        void Matrix::setContent(int** content);
+        void setContent(int** content);
         ~Matrix();
         int height();
         int width();

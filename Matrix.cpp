@@ -40,7 +40,7 @@ Matrix* Matrix::verticalSobel(){
     return m;
 }
 
-Matrix* Matrix::verticalSobel(){
+Matrix* Matrix::horizontalSobel(){
     int** tmp = (int**) malloc(3*3*sizeof(int));
     tmp[0][0] = -1;
     tmp[0][1] = -2;
