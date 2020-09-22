@@ -13,10 +13,13 @@ class Image{
         long _nrl, _nrh, _ncl, _nch;
 
         Image();
+        Image(string filepath);
         Image(const Image&);
         ~Image();
 
     public:
+        virtual void save(string path) = 0;
+
         int height() const;
         int width() const;
 };

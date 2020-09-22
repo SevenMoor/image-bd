@@ -1,11 +1,14 @@
 #include "ImagePPM.h"
+#include "ImagePGM.h"
 #include "lib/nralloc.h"
 #include "lib/nrio.h"
 
 #include <cstring>
 
-ImagePPM::ImagePPM(string filepath) {
-	char *cpath;
+ImagePPM::ImagePPM() : Image() {}
+
+ImagePPM::ImagePPM(string filepath) : Image(filepath) {
+	char cpath[filepath.size()];
 	strcpy(cpath, filepath.c_str());
 	_bytes = LoadPPM_rgb8matrix(cpath, &_nrl, &_nrh, &_ncl, &_nch);
 	_width = _nrh - _nrl;
@@ -13,12 +16,6 @@ ImagePPM::ImagePPM(string filepath) {
 }
 
 ImagePPM::ImagePPM(const ImagePPM& image) : Image(image) {
-	_nrl = image._nrl;
-	_nrh = image._nrh;
-	_ncl = image._ncl;
-	_nch = image._nch;
-	_width = _nrh - _nrl;
-	_height = _nch - _ncl;
 	_bytes = rgb8matrix(_nrl, _nrh, _ncl, _nch);
 
 	for (int row = 0; row < _width; ++row)
@@ -30,15 +27,28 @@ ImagePPM::ImagePPM(const ImagePPM& image) : Image(image) {
 	}
 }
 
+ImagePPM::ImagePPM(const ImagePGM& image) : Image(image) {
+	_bytes = rgb8matrix(_nrl, _nrh, _ncl, _nch);
+
+	for (int row = 0; row < _width; ++row)
+	{
+		for (int col = 0; col < _height; ++col)
+		{
+			_bytes[row][col].r = image._bytes[row][col];
+			_bytes[row][col].g = image._bytes[row][col];
+			_bytes[row][col].b = image._bytes[row][col];
+		}
+	}
+}
+
 ImagePPM::~ImagePPM() {
 	free_rgb8matrix(_bytes, _nrl, _nrh, _ncl, _nch);
 }
 
 void ImagePPM::save(string path) {
-	char *cpath;
+	char cpath[path.size()];
 	strcpy(cpath, path.c_str());
 	SavePPM_rgb8matrix(_bytes, _nrl, _nrh, _ncl, _nch, cpath);
-	delete cpath;
 }
 
 double** ImagePPM::histogram() {
