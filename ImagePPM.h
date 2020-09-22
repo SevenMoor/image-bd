@@ -2,18 +2,22 @@
 #define IMAGEPPM_H
 
 #include "Image.h"
-#include "Matrix.h"
 #include "lib/def.h"
 
 using namespace std;
 
+class ImagePGM;
+
 class ImagePPM : public Image{
     private:
         rgb8** _bytes;
+        friend ImagePGM;
 
     public:
+    	ImagePPM();
         ImagePPM(string filepath);
         ImagePPM(const ImagePPM&);
+        ImagePPM(const ImagePGM&);
         ~ImagePPM();
 
         void save(string path);
