@@ -4,7 +4,7 @@
 
 #include <cstring>
 
-ImagePPM::ImagePPM(string filepath) : Image(filepath) {
+ImagePPM::ImagePPM(string filepath) {
 	char *cpath;
 	strcpy(cpath, filepath.c_str());
 	_bytes = LoadPPM_rgb8matrix(cpath, &_nrl, &_nrh, &_ncl, &_nch);

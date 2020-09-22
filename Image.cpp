@@ -1,8 +1,6 @@
 #include "Image.h"
 
-Image::Image(string filepath) {
-    //...
-}
+Image::Image() {}
 
 Image::Image(const Image& image) {
 
