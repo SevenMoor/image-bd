@@ -8,8 +8,8 @@ using namespace std;
 
 class DatabaseConnector{
     private:
-        static Environment* env;
-        static Connection* c;
+        static Environment* _env;
+        static Connection* _c;
     public:
         static void init(string host, string user, string pass, string database);
         static void insert(string nom, float gradientAverage, float contourPointRate,double** histogram);
