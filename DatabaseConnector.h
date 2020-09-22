@@ -14,7 +14,8 @@ class DatabaseConnector{
         static void init(string host, string user, string pass, string database);
         static void insert(string nom, float gradientAverage, float contourPointRate,double** histogram);
         static void insert(string nom, float gradientAverage, float contourPointRate,double* histogram);
-        string* selectSimilar(string file); 
+        static string* selectSimilar(string file); 
+        static void close();
 };
 
 #endif
