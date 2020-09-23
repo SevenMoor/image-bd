@@ -1,11 +1,11 @@
 #include "DBFacade.h"
 
-byte*   DBFacade::getHistogram(ImagePGM image){
+double*   DBFacade::getHistogram(ImagePGM image){
 
 }
 
 
- byte** DBFacade::getHistogram(ImagePPM image){
+ double** DBFacade::getHistogram(ImagePPM image){
 
  }
 
