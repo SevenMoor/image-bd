@@ -1,4 +1,4 @@
-CC        = g++
+CC       =g++
 CXXFLAGS  =-Wall -g
 
 TARGET    = out
