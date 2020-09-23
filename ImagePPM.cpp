@@ -11,8 +11,8 @@ ImagePPM::ImagePPM(string filepath) : Image(filepath) {
 	char cpath[filepath.size()];
 	strcpy(cpath, filepath.c_str());
 	_bytes = LoadPPM_rgb8matrix(cpath, &_nrl, &_nrh, &_ncl, &_nch);
-	_width = _nrh - _nrl;
-	_height = _nch - _ncl;
+	_width = (_nrh - _nrl) + 1;
+	_height = (_nch - _ncl) + 1;
 }
 
 ImagePPM::ImagePPM(const ImagePPM& image) : Image(image) {
@@ -56,7 +56,7 @@ double** ImagePPM::histogram() {
 
 	for (int i = 0; i < 3; ++i)
 	{
-		hist[i] = new double[256];
+		hist[i] = new double[256]();
 	}
 
 	// Calcul de l'histogramme

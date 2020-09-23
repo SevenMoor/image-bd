@@ -1,4 +1,4 @@
-CC        = g++
+CC       =g++
 CXXFLAGS  =-Wall -g
 
 TARGET    =features
@@ -7,7 +7,7 @@ OBJ       =$(SRC:.cpp=.o)
 LIB  	  =lib/libnrc.a
 
 $(TARGET) : $(OBJ)
-	$(CC) $(OBJ) -o $(TARGET) $(LIB)
+	$(CC) $(CXXFLAGS) $(OBJ) -o $(TARGET) $(LIB)
 
 all: $(TARGET)
 

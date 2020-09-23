@@ -15,12 +15,12 @@ class ImagePPM : public Image{
 
     public:
     	ImagePPM();
-        ImagePPM(string filepath);
+        explicit ImagePPM(string filepath);
         ImagePPM(const ImagePPM&);
         ImagePPM(const ImagePGM&);
         ~ImagePPM();
 
-        void save(string path);
+        void save(string path) override;
 
         double** histogram();
 
