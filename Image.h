@@ -8,7 +8,8 @@ using namespace std;
 
 class Image{
     protected:
-        int _width, _height;
+        int _width = 0;
+        int _height = 0;
         long _nrl, _nrh, _ncl, _nch;
 
         Image();
