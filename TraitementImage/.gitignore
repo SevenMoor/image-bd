@@ -1,8 +1,5 @@
-
-#output program
-out
-data/
-
+# Prerequisites
+*.d
 
 # Object files
 *.o
@@ -57,3 +54,5 @@ features
 
 .vscode/
 .idea/
+
+results/
