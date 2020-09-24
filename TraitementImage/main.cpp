@@ -10,15 +10,15 @@
 using namespace std;
 
 int main(int argc, char const *argv[]){
-	FileExporter fileExporter("data");
+	FileExporter fileExporter("data-ppm.csv");
 
 	struct dirent *entry;
-   	DIR *dir = opendir("feed/archivePPMPGM/archive500ppm");
+   	DIR *dir = opendir("TraitementImage/feed/archivePPMPGM/archive500ppm");
 	while ((entry = readdir(dir)) != NULL){
 			string name(entry->d_name);
 			if(name!="."&&name!=".."){
 				cout << "Treated " << name << endl;
-				ImagePPM image("feed/archivePPMPGM/archive500ppm/"+name);
+				ImagePPM image("TraitementImage/feed/archivePPMPGM/archive500ppm/"+name);
 				fileExporter.add(name,DBFacade::getGradientAverage(image),DBFacade::getContourPointRate(image),DBFacade::getHistogram(image));
 			}
 	}

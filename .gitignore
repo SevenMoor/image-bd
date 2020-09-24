@@ -1,6 +1,8 @@
 
 #output program
 out
+data/
+
 
 # Object files
 *.o
