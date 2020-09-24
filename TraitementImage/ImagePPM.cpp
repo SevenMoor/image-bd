@@ -73,12 +73,12 @@ double** ImagePPM::histogram() {
 	}
 
 	// Somme cumulée de l'histogramme
-	for (int i = 1; i < 256; ++i)
-	{
-		hist[0][i] = hist[0][i-1];
-		hist[1][i] = hist[1][i-1];
-		hist[2][i] = hist[2][i-1];
-	}
+	// for (int i = 1; i < 256; ++i)
+	// {
+	// 	hist[0][i] = hist[0][i-1];
+	// 	hist[1][i] = hist[1][i-1];
+	// 	hist[2][i] = hist[2][i-1];
+	// }
 
 	// Normalisation de l'histogramme
 	int imageSize = _width * _height;
