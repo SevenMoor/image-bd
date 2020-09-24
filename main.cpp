@@ -13,13 +13,16 @@ int main(int argc, char const *argv[]){
 	FileExporter fileExporter("data");
 
 	struct dirent *entry;
-   	DIR *dir = opendir("feed/archivePPMPGM/archive500pgm");
+   	DIR *dir = opendir("feed/archivePPMPGM/archive500ppm");
 	while ((entry = readdir(dir)) != NULL){
-			if(entry->d_name!="."||entry->d_name!=".."){
-				ImagePGM image(entry->d_name);
-				fileExporter.add(entry->d_name,DBFacade::getGradientAverage(image),DBFacade::getContourPointRate(image),DBFacade::getHistogram(image));
+			string name(entry->d_name);
+			if(name!="."&&name!=".."){
+				cout << "Treated " << name << endl;
+				ImagePPM image("feed/archivePPMPGM/archive500ppm/"+name);
+				fileExporter.add(name,DBFacade::getGradientAverage(image),DBFacade::getContourPointRate(image),DBFacade::getHistogram(image));
 			}
 	}
+	fileExporter.save();
    closedir(dir);
 
 	return 0;

@@ -9,6 +9,8 @@ class DBFacade{
         static double*   getHistogram(ImagePGM image);
         static double** getHistogram(ImagePPM image);
         static float getGradientAverage(ImagePGM image);
+        static float getGradientAverage(ImagePPM image);
+        static float getContourPointRate(ImagePPM image);
         static float getContourPointRate(ImagePGM image);
 };
 
