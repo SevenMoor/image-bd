@@ -1,13 +1,13 @@
 CC       =g++
 CXXFLAGS  =-Wall -g
 
-TARGET    =features
-SRC       =features.cpp Image.cpp Matrix.cpp ImagePGM.cpp ImagePPM.cpp
+TARGET    = out
+SRC       =main.cpp Image.cpp Matrix.cpp ImagePGM.cpp ImagePPM.cpp FileExporter.cpp DBFacade.cpp
 OBJ       =$(SRC:.cpp=.o)
-LIB  	  =lib/libnrc.a
+LIB  	    =lib/libnrc.a
 
 $(TARGET) : $(OBJ)
-	$(CC) $(CXXFLAGS) $(OBJ) -o $(TARGET) $(LIB)
+	$(CC) $(OBJ) -o $(TARGET) $(LIB) $(CXXFLAGS)
 
 all: $(TARGET)
 
