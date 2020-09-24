@@ -112,12 +112,6 @@ double* ImagePGM::histogram() {
 		}
 	}
 
-//	// Somme cumulée de l'histogramme
-//	for (int i = 1; i < 256; ++i)
-//	{
-//		hist[i] = hist[i-1];
-//	}
-//
 	// Normalisation de l'histogramme
 	int imageSize = _width * _height;
 	for (int i = 0; i < 256; ++i)
