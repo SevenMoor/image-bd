@@ -1,9 +1,21 @@
 <!doctype html>
 <html lang="fr">
-  <?php 
+  <?php
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
+    include('OCIConnection.php');
     error_reporting(E_ALL);
+
+
+    $connection = OCIConnection::getConnection();
+    $statement = oci_parse($connection,"EXECUTE ranker('".$_GET["name"]."')");
+    oci_execute($statement);
+    oci_commit($connection);
+    oci_free_statement($statement);
+
+    $statement = oci_parse($connection,"SELECT * FROM similaire ORDER BY dist ASC LIMIT 10");
+    oci_execute($statement);
+    oci_commit($connection);
   ?>
 
   <head>
@@ -23,6 +35,16 @@
     <div class="row justify-content-md-center">
         <?php
             echo "<img src='archive500/$_GET[name]' class='img-fluid shadow rounded' alt='$_GET[name]'>";
+        ?>
+    </div>
+    <div class="row justify-content-md-between align-items-center mx-3">
+        <?php
+          while(oci_fetch($stid)){
+            echo "<a role='button' class='btn btn-light mb-2' href='result.php?name=$i.jpg'>
+                        <img src='archive500/".oci_result($statement,"nom")."' class='img-fluid shadow rounded' alt='".oci_result($statement,"nom")."'>
+                        <span class='text-muted text-center w-100 sm'>Score de distance:".oci_result($statement,"dist")."</span>
+                      </a>";
+          }
         ?>
     </div>
 
