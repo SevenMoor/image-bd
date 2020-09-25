@@ -27,7 +27,7 @@
 	   public static function getInstance() {
 	 
 	     if(is_null(self::$_instance)) {
-	       self::$_instance = new Singleton();  
+	       self::$_instance = new OCIConnection();  
 	     }
 	 
 	     return self::$_instance;
