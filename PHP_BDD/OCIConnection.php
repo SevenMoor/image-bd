@@ -15,19 +15,16 @@
 		* @return void
 		*/
 		private function __construct() {  
-			$conn = oci_connect("Y2020M2_PAUQUET", "M123456M", "//10.40.128.30:1521/orcl");
-			if (!$conn) {
+			self::$connection = oci_connect("Y2020M2_PAUQUET", "M123456M", "//10.40.128.30:1521/orcl");
+/*			if (!$conn) {
 				$m = oci_error();
 				echo $m['message'], "\n";
 				exit;
-			}
-			else {
-				print "Connected to Oracle!";
-			}
+			}*/
 		}
 
 		private function __destruct() {
-			oci_close($_connection);
+			oci_close(self::$_connection);
 		}
 
 		/**
@@ -39,10 +36,10 @@
 		*/
 		public static function getConnection() {
 			if(is_null(self::$_connection)) {
-				self::$_instance = new OCIConnection();  
+				self::$_connection = new OCIConnection();
 			}
 
-			return self::$_instance;
+			return self::$_connection;
 		}
 	}
 ?>
