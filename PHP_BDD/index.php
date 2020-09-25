@@ -66,22 +66,46 @@
 
       <script>
         function useRanker(){
-            $("a.img-cont").attr("href",$("a.img-cont").attr("href").replace(/func=(.*)/g,"func=ranker_"));
+            $("a.dropdown-item").click(function(){
+              $("a.img-cont").each(function(){
+                $(this).attr("href",$(this).attr("href").replace(/func=(.*)/g,"func=ranker_"));
+              });
+            });
         }
         function useBlackwhite(){
-          $("a.img-cont").attr("href",$("a.img-cont").attr("href").replace(/func=(.*)/g,"func=blackwhite"));
+          $("a.dropdown-item").click(function(){
+              $("a.img-cont").each(function(){
+                $(this).attr("href",$(this).attr("href").replace(/func=(.*)/g,"func=blackwhite"));
+              });
+            });
         }
         function useGetoracle(){
-          $("a.img-cont").attr("href",$("a.img-cont").attr("href").replace(/func=(.*)/g,"func=getoracle"));
+          $("a.dropdown-item").click(function(){
+              $("a.img-cont").each(function(){
+                $(this).attr("href",$(this).attr("href").replace(/func=(.*)/g,"func=getoracle"));
+              });
+            });
         }
         function useGettexture(){
-          $("a.img-cont").attr("href",$("a.img-cont").attr("href").replace(/func=(.*)/g,"func=gettexture"));
+          $("a.dropdown-item").click(function(){
+              $("a.img-cont").each(function(){
+                $(this).attr("href",$(this).attr("href").replace(/func=(.*)/g,"func=gettexture"));
+              });
+            });
         }
         function useGetrgb(){
-          $("a.img-cont").attr("href",$("a.img-cont").attr("href").replace(/func=(.*)/g,"func=getrgb"));
+          $("a.dropdown-item").click(function(){
+              $("a.img-cont").each(function(){
+                $(this).attr("href",$(this).attr("href").replace(/func=(.*)/g,"func=getrgb"));
+              });
+            });
         }
         function useGetblue(){
-          $("a.img-cont").attr("href",$("a.img-cont").attr("href").replace(/func=(.*)/g,"func=getblue"));
+          $("a.dropdown-item").click(function(){
+              $("a.img-cont").each(function(){
+                $(this).attr("href",$(this).attr("href").replace(/func=(.*)/g,"func=getblue"));
+              });
+            });
         }
       </script>
 
