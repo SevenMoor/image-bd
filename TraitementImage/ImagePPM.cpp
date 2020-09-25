@@ -76,9 +76,9 @@ double** ImagePPM::histogram() {
 	int imageSize = _width * _height;
 	for (int i = 0; i < 256; ++i)
 	{
-		hist[0][i] = hist[0][i] * 256 / imageSize;
-		hist[1][i] = hist[1][i] * 256 / imageSize;
-		hist[2][i] = hist[2][i] * 256 / imageSize;	
+		hist[0][i] = hist[0][i] / imageSize;
+		hist[1][i] = hist[1][i] / imageSize;
+		hist[2][i] = hist[2][i] / imageSize;
 	}
 
 	return hist;

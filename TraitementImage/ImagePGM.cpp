@@ -116,7 +116,7 @@ double* ImagePGM::histogram() {
 	int imageSize = _width * _height;
 	for (int i = 0; i < 256; ++i)
 	{
-		hist[i] = hist[i] * 256 / imageSize;
+		hist[i] = hist[i] / imageSize;
 	}
 
 	return hist;
