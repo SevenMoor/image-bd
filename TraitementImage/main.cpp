@@ -10,7 +10,7 @@
 using namespace std;
 
 int main(int argc, char const *argv[]){
-	FileExporter fileExporter("data-ppm-gray.csv");
+	FileExporter fileExporter("data-ppm-color.csv");
 
 	struct dirent *entry;
    	DIR *dir = opendir("TraitementImage/feed/archivePPMPGM/archive500ppm");
@@ -19,8 +19,8 @@ int main(int argc, char const *argv[]){
 			if(name!="."&&name!=".."){
 				cout << "Treated " << name << endl;
 				ImagePPM image("TraitementImage/feed/archivePPMPGM/archive500ppm/"+name);
-				ImagePGM gray = image;
-				fileExporter.add(name,DBFacade::getGradientAverage(gray),DBFacade::getContourPointRate(gray),DBFacade::getHistogram(gray));
+				//ImagePGM gray = image;
+				fileExporter.add(name,DBFacade::getGradientAverage(image),DBFacade::getContourPointRate(image),DBFacade::getHistogram(image));
 			}
 	}
 	fileExporter.save();

@@ -7,13 +7,24 @@
     error_reporting(E_ALL);
 
 
+
     $connection = OCIConnection::getConnection();
-    $statement = oci_parse($connection->_connection,"BEGIN ranker_('".$_GET["name"]."'); END;");
+
+    if($_GET["func"]=="ranker_"||$_GET["func"]=="getoracle"){
+      $param = "'".$_GET["name"]."'";
+      $order = "ASC";
+    }
+    else{
+      $param ="";
+      $order = "DESC";
+    }
+
+    $statement = oci_parse($connection->_connection,"BEGIN ".$_GET['func']."(".$param."); END;");
     oci_execute($statement);
     oci_commit($connection->_connection);
     oci_free_statement($statement);
 
-    $statement = oci_parse($connection->_connection,"SELECT * FROM similaire ORDER BY dist ASC");
+    $statement = oci_parse($connection->_connection,"SELECT * FROM similaire ORDER BY dist $order");
     oci_execute($statement);
     oci_commit($connection->_connection);
   ?>
