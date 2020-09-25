@@ -55,10 +55,10 @@
             if($i<10)
               echo "<div role='button' class='mb-3 col-2 mx-2' href='result.php?name=$i.jpg'>
                         <div class='row'>
-                          <img class='mx-auto rounded' src='archive500/".oci_result($statement,"NOM")."' class='img-fluid shadow rounded' alt='".oci_result($statement,"NOM")."'>
+                          <img class='mx-auto rounded shadow' src='archive500/".oci_result($statement,"NOM")."' class='img-fluid shadow rounded' alt='".oci_result($statement,"NOM")."'>
                         </div>
                         <div class='row'>
-                          <span class='text-muted text-center w-100 sm'>Score de distance:".number_format((float) oci_result($statement,"DIST"), 3, '.', '')."</span>
+                          <span class='text-muted text-center w-100 sm'>Score de distance : ".number_format((float) oci_result($statement,"DIST"), 3, '.', '')."</span>
                         </div>
                       </div>";
               $i++;
