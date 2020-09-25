@@ -15,11 +15,14 @@
 		* @return void
 		*/
 		private function __construct() {  
-			self::$connection = oci_connect("Y2020M2_PAUQUET", "M123456M", "//10.40.128.30:1521/orcl");
+			$conn = oci_connect("Y2020M2_PAUQUET", "M123456M", "//10.40.128.30:1521/orcl");
 /*			if (!$conn) {
 				$m = oci_error();
 				echo $m['message'], "\n";
 				exit;
+			}
+			else {
+				echo 'Connected!';
 			}*/
 		}
 
