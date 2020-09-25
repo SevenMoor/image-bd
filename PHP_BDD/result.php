@@ -8,14 +8,14 @@
 
 
     $connection = OCIConnection::getConnection();
-    $statement = oci_parse($connection,"EXECUTE ranker('".$_GET["name"]."')");
+    $statement = oci_parse($connection->_connection,"BEGIN ranker_('".$_GET["name"]."'); END;");
     oci_execute($statement);
-    oci_commit($connection);
+    oci_commit($connection->_connection);
     oci_free_statement($statement);
 
-    $statement = oci_parse($connection,"SELECT * FROM similaire ORDER BY dist ASC LIMIT 10");
+    $statement = oci_parse($connection->_connection,"SELECT * FROM similaire ORDER BY dist ASC");
     oci_execute($statement);
-    oci_commit($connection);
+    oci_commit($connection->_connection);
   ?>
 
 <head>
@@ -37,13 +37,20 @@
             echo "<img src='archive500/$_GET[name]' class='img-fluid shadow rounded' alt='$_GET[name]'>";
         ?>
     </div>
-    <div class="row justify-content-md-between align-items-center mx-3">
+    <div class="row justify-content-md-between align-items-center mt-3 mx-3 border-top pt-3">
         <?php
-          while(oci_fetch($stid)){
-            echo "<a role='button' class='btn btn-light mb-2' href='result.php?name=$i.jpg'>
-                        <img src='archive500/".oci_result($statement,"nom")."' class='img-fluid shadow rounded' alt='".oci_result($statement,"nom")."'>
-                        <span class='text-muted text-center w-100 sm'>Score de distance:".oci_result($statement,"dist")."</span>
-                      </a>";
+          $i = 0;
+          while(oci_fetch($statement)){
+            if($i<10)
+              echo "<div role='button' class='mb-3 col-2 mx-2' href='result.php?name=$i.jpg'>
+                        <div class='row'>
+                          <img class='mx-auto rounded' src='archive500/".oci_result($statement,"NOM")."' class='img-fluid shadow rounded' alt='".oci_result($statement,"NOM")."'>
+                        </div>
+                        <div class='row'>
+                          <span class='text-muted text-center w-100 sm'>Score de distance:".number_format((float) oci_result($statement,"DIST"), 3, '.', '')."</span>
+                        </div>
+                      </div>";
+              $i++;
           }
         ?>
     </div>

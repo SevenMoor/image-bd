@@ -27,7 +27,7 @@
 			}*/
 		}
 
-		private function __destruct() {
+		public function __destruct() {
 			if ($this->_connection) {
 				oci_close($this->_connection);
 			}
